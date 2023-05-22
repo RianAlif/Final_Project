@@ -45,3 +45,4 @@ int dirY = 2;
   x = (int) xPos;
   y = (int) yPos;
  }
+ 
