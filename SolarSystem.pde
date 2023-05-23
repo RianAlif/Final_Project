@@ -1,10 +1,11 @@
 int x, y;
-float angle = 0;
-float orbitRadius = 150;
+float angle = 23.5;
+float orbitRadiusA = 220;
+float orbitRadiusB = 120;
 
 void setup() {
   background(#000000);
-  size(1400, 1000);
+  size(1820, 980);
 
   x = width / 2;
   y = height / 2;
@@ -36,26 +37,26 @@ void drawSun(){
    // Sun
   noStroke();
   fill(#f55b09);
-  circle(width / 2, height / 2, 150);
+  circle(width / 2, height / 2, 100);
   fill(#f56d09);
-  circle(width / 2, height / 2, 140);
+  circle(width / 2, height / 2, 90);
   fill(#f59409);
-  circle(width / 2, height / 2, 130);
+  circle(width / 2, height / 2, 80);
   fill(#f5b509);
-  circle(width / 2, height / 2, 115);
+  circle(width / 2, height / 2, 65);
   fill(#f5d109);
-  circle(width / 2, height / 2, 95);
+  circle(width / 2, height / 2, 45);
   // CENTER
   fill(#FFEC33);
-  circle(width / 2, height / 2, 70);
+  circle(width / 2, height / 2, 20);
 }
 void orbit() {
   float centerX = width / 2;
   float centerY = height / 2;
 
   // Calculate the new position of the Earth
-  x = (int) (centerX + orbitRadius * cos(angle));
-  y = (int) (centerY + orbitRadius * sin(angle));
+  x = (int) (centerX + orbitRadiusA * cos(angle));
+  y = (int) (centerY + orbitRadiusB * sin(angle));
 
   // Draw the Earth
   drawEarth();
