@@ -14,7 +14,7 @@ void setup() {
 }
 
 void draw() {
-  background(#backgroundImage);
+  background(backgroundImage);
   drawSun();
   drawEarth();
   orbit();

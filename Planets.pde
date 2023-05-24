@@ -4,6 +4,7 @@ int diameter;
 PVector position;
 int velocity;
 
-public Planets(float angle, PVector position
+public Planets(float angle, PVector position){
 
+}
 }
