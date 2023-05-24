@@ -1,18 +1,20 @@
+PImage backgroundImage;
 int x, y;
 float angle = 23.5;
-float orbitRadiusA = 220;
-float orbitRadiusB = 120;
+float orbitRadiusA = 260;
+float orbitRadiusB = 160;
 
 void setup() {
-  background(#000000);
   size(1820, 980);
+  backgroundImage = loadImage("background.jpg");
+  backgroundImage.resize(width, height);
 
   x = width / 2;
   y = height / 2;
 }
 
 void draw() {
-  background(#000000);
+  background(#backgroundImage);
   drawSun();
   drawEarth();
   orbit();
@@ -57,7 +59,11 @@ void orbit() {
   // Calculate the new position of the Earth
   x = (int) (centerX + orbitRadiusA * cos(angle));
   y = (int) (centerY + orbitRadiusB * sin(angle));
-
+  
+  // Draw the ellipse representing Earth's orbit
+  noFill();
+  stroke(#666666);
+  ellipse(centerX, centerY, orbitRadiusA * 2, orbitRadiusB * 2);
   // Draw the Earth
   drawEarth();
 
