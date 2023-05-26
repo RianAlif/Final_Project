@@ -42,9 +42,4 @@ public void drawEarth() {
   circle(x - detailSize +6, y - detailSize + 6, detailSize);
   circle(x + detailSize -6, y + detailSize -6, detailSize);
 }
-void displayOrbitCounter() {
-  fill(255);
-  textAlign(CENTER);
-  textSize(32);
-  text("Orbit Count: " + orbitCounter, width / 2, height - 50);
 }

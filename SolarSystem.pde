@@ -1,6 +1,7 @@
 PImage backgroundImage;
+int viewNum = 0;
 int x, y;
-Mercury mercury = new Mercury(7, 8, 150, 60);
+Mercury mercury = new Mercury(7, 8, 150, 70);
 Venus venus = new Venus(3.395, 16, 210, 110);
 Earth earth = new Earth(23.5, 20, 260, 160);
   
@@ -22,10 +23,18 @@ void draw() {
   if (x2 < width) {
     copy(backgroundImage, 0, 0, backgroundImage.width, height, x2, 0, backgroundImage.width, height);
   }
+  if (viewNum == 0){
   drawSun();
   earth.orbit();
   venus.orbit();
   mercury.orbit();
+  }
+  if (viewNum == 1){
+  drawSun();
+  earth.orbit();
+  }
+  reset();
+  
 }
   
 void drawSun(){
@@ -44,4 +53,9 @@ void drawSun(){
   // CENTER
   fill(#FFEC33);
   circle(width / 2, height / 2, 20);
+}
+
+void reset(){
+if (earth.x == mouseX || earth.y == mouseY)
+   viewNum = 1;
 }
