@@ -1,9 +1,14 @@
 PImage backgroundImage;
 int viewNum = 0;
 int x, y;
-Mercury mercury = new Mercury(7, 8, 150, 70);
-Venus venus = new Venus(3.395, 16, 210, 110);
-Earth earth = new Earth(23.5, 20, 260, 160);
+
+Planet[] planets = new Planet[]{
+  new Mercury(7, 8, 150, 70, 0.04),
+  new Venus(3.395, 18, 210, 110, 0.016),
+  new Earth(23.5, 20, 260, 160, 0.01),
+  new Mars(25, 14, 310, 210, 0.028),
+  new Jupiter(1.3, 220 ,400, 300, 0.128);
+};
   
 void setup() {
   size(1820, 980);
@@ -25,13 +30,12 @@ void draw() {
   }
   if (viewNum == 0){
   drawSun();
-  earth.orbit();
-  venus.orbit();
-  mercury.orbit();
+  for (int i = 0; i < planets.length; i++)
+       planets[i].orbit();
   }
   if (viewNum == 1){
   drawSun();
-  earth.orbit();
+  planets[2].orbit();
   }
   reset();
   
@@ -56,6 +60,6 @@ void drawSun(){
 }
 
 void reset(){
-if (earth.x == mouseX || earth.y == mouseY)
+if (planets[2].x == mouseX || planets[2].y == mouseY)
    viewNum = 1;
 }
