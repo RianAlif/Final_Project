@@ -3,11 +3,11 @@ int viewNum = 0;
 int x, y;
 
 Planet[] planets = new Planet[]{
-  new Mercury(7, 8, 150, 70, 0.04),
-  new Venus(3.395, 18, 210, 110, 0.016),
+  new Mercury(7, 8, 150, 70, 0.0415),
+  new Venus(3.395, 18, 210, 110, 0.0162),
   new Earth(23.5, 20, 260, 160, 0.01),
-  new Mars(25, 14, 310, 210, 0.028),
-  new Jupiter(1.3, 220 ,400, 300, 0.128);
+  new Mars(25, 14, 310, 210, 0.005),
+  new Jupiter(1.3, 60 ,400, 300, 0.00085)
 };
   
 void setup() {
@@ -34,8 +34,9 @@ void draw() {
        planets[i].orbit();
   }
   if (viewNum == 1){
-  drawSun();
-  planets[2].orbit();
+  planets[2].centerPlanet();
+  planets[2].drawMoon();
+  planets[2].moonOrbit();
   }
   reset();
   

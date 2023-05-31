@@ -15,4 +15,10 @@ public class Mercury extends Planet {
       fill(#808080); 
       ellipse(x, y, size-10, size);
   }
+  
+   @Override
+  public void centerPlanet(){}
+  
+  @Override
+  public void drawMoon(){}
 }

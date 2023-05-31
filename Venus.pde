@@ -13,4 +13,10 @@ public class Venus extends Planet {
     fill(#F18938); //Darker pink color for details
     ellipse(x, y, size, size-10);
   }
+  
+   @Override
+  public void centerPlanet(){}
+  
+   @Override
+  public void drawMoon(){}
 }

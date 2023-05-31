@@ -9,4 +9,10 @@ public class Mars extends Planet {
    fill(#ff5e3a);
    circle(x, y, size);
   }
+  
+   @Override
+  public void centerPlanet(){}
+  
+  @Override
+  public void drawMoon(){}
 }

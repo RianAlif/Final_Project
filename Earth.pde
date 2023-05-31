@@ -17,4 +17,18 @@ public class Earth extends Planet {
   circle(x - detailSize +6, y - detailSize + 6, detailSize);
   circle(x + detailSize -6, y + detailSize -6, detailSize);
   }
+  
+  @Override
+  public void centerPlanet(){
+    noStroke();
+    fill(#2b88ff);
+    circle(width/2, height/2, 200);
+  }
+  
+  @Override
+  public void drawMoon(){
+    noStroke();
+    fill(#c1c0bf);
+    circle(x, y, size);
+  }
 }

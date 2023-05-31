@@ -9,4 +9,10 @@ public class Jupiter extends Planet {
    fill(#ff982b);
    circle(x, y, size);
   }
+  
+  @Override
+  public void centerPlanet(){}
+  
+  @Override
+  public void drawMoon(){}
 }
