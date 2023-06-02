@@ -3,15 +3,15 @@ int viewNum = 0;
 int x, y;
 
 Planet[] planets = new Planet[]{
-  new Mercury(7, 8, 150, 70, 0.0415),
-  new Venus(3.395, 18, 210, 110, 0.0162),
-  new Earth(23.5, 20, 260, 160, 0.01),
-  new Mars(25, 14, 310, 210, 0.005),
-  new Jupiter(1.3, 60 ,400, 300, 0.00085)
+  new Mercury(7, 8, 220, 140, 0.0415),
+  new Venus(3.395, 18, 280, 180, 0.0162),
+  new Earth(23.5, 20, 330, 230, 0.01),
+  new Mars(25, 14, 380, 280, 0.005),
+  new Jupiter(1.3, 60, 510, 440, 0.00085)
 };
   
 void setup() {
-  size(1820, 980);
+  size(1920, 1080);
   backgroundImage = loadImage("background.jpg");
   backgroundImage.resize(width, height);
   
@@ -46,18 +46,18 @@ void drawSun(){
    // Sun
   noStroke();
   fill(#f55b09);
-  circle(width / 2, height / 2, 100);
+  circle(width / 2, height / 2, 200);
   fill(#f56d09);
-  circle(width / 2, height / 2, 90);
+  circle(width / 2, height / 2, 190);
   fill(#f59409);
-  circle(width / 2, height / 2, 80);
+  circle(width / 2, height / 2, 180);
   fill(#f5b509);
-  circle(width / 2, height / 2, 65);
+  circle(width / 2, height / 2, 165);
   fill(#f5d109);
-  circle(width / 2, height / 2, 45);
+  circle(width / 2, height / 2, 145);
   // CENTER
   fill(#FFEC33);
-  circle(width / 2, height / 2, 20);
+  circle(width / 2, height / 2, 120);
 }
 
 void reset(){
