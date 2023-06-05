@@ -3,11 +3,14 @@ int viewNum = 0;
 int x, y;
 
 Planet[] planets = new Planet[]{
-  new Mercury(7, 8, 220, 140, 0.0415),
-  new Venus(3.395, 18, 280, 180, 0.0162),
-  new Earth(23.5, 20, 330, 230, 0.01),
-  new Mars(25, 14, 380, 280, 0.005),
-  new Jupiter(1.3, 60, 510, 440, 0.00085)
+  new Mercury(23.5, 8, 190, 110, 0.0415),
+  new Venus(23.5, 18, 240, 140, 0.0162),
+  new Earth(23.5, 20, 290, 190, 0.01),
+  new Mars(23.5, 14, 340, 240, 0.005),
+  new Jupiter(23.5, 60, 400, 300, 0.00085),
+  new Saturn(23.5, 50, 480, 380, 0.00034),
+  new Uranus(23.5, 25, 520, 420, 0.000119),
+  new Neptune(23.5, 25, 700, 460, 0.000061)
 };
   
 void setup() {
@@ -46,21 +49,23 @@ void drawSun(){
    // Sun
   noStroke();
   fill(#f55b09);
-  circle(width / 2, height / 2, 200);
+  circle(width / 2, height / 2, 170);
   fill(#f56d09);
-  circle(width / 2, height / 2, 190);
+  circle(width / 2, height / 2, 160);
   fill(#f59409);
-  circle(width / 2, height / 2, 180);
+  circle(width / 2, height / 2, 150);
   fill(#f5b509);
-  circle(width / 2, height / 2, 165);
+  circle(width / 2, height / 2, 135);
   fill(#f5d109);
-  circle(width / 2, height / 2, 145);
+  circle(width / 2, height / 2, 115);
   // CENTER
   fill(#FFEC33);
-  circle(width / 2, height / 2, 120);
+  circle(width / 2, height / 2, 90);
 }
 
 void reset(){
-if (planets[2].x == mouseX || planets[2].y == mouseY)
+if (viewNum == 1) {viewNum = 0;
+}else if (planets[2].x == mouseX || planets[2].y == mouseY){
    viewNum = 1;
+}
 }
