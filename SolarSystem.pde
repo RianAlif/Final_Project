@@ -4,15 +4,15 @@ int x, y;
 
 Planet[] planets = new Planet[]{
   new Mercury(23.5, 8, 190, 110, 0.0415),
-  new Venus(23.5, 18, 240, 140, 0.0162),
+  new Venus(23.5, 18, 240, 150, 0.0162),
   new Earth(23.5, 20, 290, 190, 0.01),
-  new Mars(23.5, 14, 340, 240, 0.005),
-  new Jupiter(23.5, 60, 400, 300, 0.00085),
-  new Saturn(23.5, 50, 480, 380, 0.00034),
-  new Uranus(23.5, 25, 520, 420, 0.000119),
-  new Neptune(23.5, 25, 700, 460, 0.000061)
+  new Mars(23.5, 14, 340, 230, 0.005),
+  new Jupiter(23.5, 60, 420, 310, 0.00085),
+  new Saturn(23.5, 50, 520, 410, 0.00034),
+  new Uranus(23.5, 25, 600, 490, 0.000119),
+  new Neptune(23.5, 25, 650, 520, 0.000061)
 };
-  
+
 void setup() {
   size(1920, 1080);
   backgroundImage = loadImage("background.jpg");
@@ -30,25 +30,23 @@ void draw() {
   if (x2 < width) {
     copy(backgroundImage, 0, 0, backgroundImage.width, height, x2, 0, backgroundImage.width, height);
   }
-  if (viewNum == 0){
-  drawSun();
-  for (int i = 0; i < planets.length; i++){
-       planets[i].orbit();
-       planets[i].displayOrbitCount();
+  if (viewNum == 0) {
+    drawSun();
+    for (int i = 0; i < planets.length; i++) {
+      planets[i].orbit();
+      planets[i].displayOrbitCount();
+    }
   }
+  if (viewNum == 1) {
+    planets[2].centerPlanet();
+    planets[2].drawMoon();
+    planets[2].moonOrbit();
+    planets[2].displayMoonOrbitCount();
   }
-  if (viewNum == 1){
-  planets[2].centerPlanet();
-  planets[2].drawMoon();
-  planets[2].moonOrbit();
-  planets[2].displayMoonOrbitCount();
-  }
-  reset();
-  
 }
-  
-void drawSun(){
-   // Sun
+
+void drawSun() {
+  // Sun
   noStroke();
   fill(#f55b09);
   circle(width / 2, height / 2, 170);
@@ -65,9 +63,11 @@ void drawSun(){
   circle(width / 2, height / 2, 90);
 }
 
-void reset(){
-if (viewNum == 0 && mousePressed){
-   viewNum = 1;
-}else if (viewNum == 1 && mousePressed)
-   viewNum = 0;
+void mouseClicked() {
+  if (mouseX > 1490 && mouseX < 1490+160 && mouseY > 760 && mouseY < 760+50 && viewNum == 1) {
+    viewNum = 0;
+  } else if (viewNum == 0)
+    viewNum = 1;
+  for (int i = 0; i < planets.length; i++)
+    planets[i].orbitCount = 1;
 }

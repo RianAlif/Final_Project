@@ -15,4 +15,14 @@ public class Saturn extends Planet {
   
   @Override
   public void drawMoon(){}
+  
+  @Override
+  public void displayOrbitCount(){
+    fill(#FFFFFF);
+    textSize(30);
+    text("Mercury Orbit Count: " + (orbitCount - 1), 150, 300);
+  }
+  
+  @Override
+  public void displayMoonOrbitCount(){}
 }

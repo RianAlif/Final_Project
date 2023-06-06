@@ -15,4 +15,14 @@ public class Mars extends Planet {
   
   @Override
   public void drawMoon(){}
+  
+  @Override
+  public void displayOrbitCount(){
+    fill(#FFFFFF);
+    textSize(30);
+    text("Mercury Orbit Count: " + (orbitCount - 1), 150, 220);
+  }
+  
+  @Override
+  public void displayMoonOrbitCount(){}
 }

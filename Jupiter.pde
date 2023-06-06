@@ -15,4 +15,14 @@ public class Jupiter extends Planet {
   
   @Override
   public void drawMoon(){}
+  
+  @Override
+  public void displayOrbitCount(){
+    fill(#FFFFFF);
+    textSize(30);
+    text("Jupiter Orbit Count: " + (orbitCount - 1), 150, 180);
+  }
+  
+  @Override
+  public void displayMoonOrbitCount(){}
 }
