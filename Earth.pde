@@ -6,7 +6,7 @@ public class Earth extends Planet {
   
   @Override
   public void drawPlanet() {
-   fill(#0966f5);
+  fill(#0966f5);
 
   // Draw the Earth as a circle with added details
   circle(x, y, size);
@@ -23,12 +23,31 @@ public class Earth extends Planet {
     noStroke();
     fill(#2b88ff);
     circle(width/2, height/2, 200);
+    fill(#19E700);
+    circle(width/2 - 40, height/2 - 40, 85);
+    circle(width/2 + 20, height/2 + 50, 85);
+    circle(width/2 + 60, height/2 - 20, 50);
+
   }
   
   @Override
   public void drawMoon(){
     noStroke();
     fill(#c1c0bf);
-    circle(x, y, size);
+    circle(x, y, 40);
+  }
+  
+  @Override
+  public void displayOrbitCount(){
+    fill(#FFFFFF);
+    textSize(30);
+    text("Earth Orbit Count: " + (orbitCount - 1), 150, 60);
+  }
+  
+  @Override
+  public void displayMoonOrbitCount(){
+  fill(#FFFFFF);
+  textSize(30);
+  text("Moon Orbit Count: " + (orbitCount - 1), 150, 60);
   }
 }

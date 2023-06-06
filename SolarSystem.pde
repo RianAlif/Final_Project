@@ -17,7 +17,6 @@ void setup() {
   size(1920, 1080);
   backgroundImage = loadImage("background.jpg");
   backgroundImage.resize(width, height);
-  
   x = width / 2;
   y = height / 2;
 }
@@ -33,13 +32,16 @@ void draw() {
   }
   if (viewNum == 0){
   drawSun();
-  for (int i = 0; i < planets.length; i++)
+  for (int i = 0; i < planets.length; i++){
        planets[i].orbit();
+       planets[i].displayOrbitCount();
+  }
   }
   if (viewNum == 1){
   planets[2].centerPlanet();
   planets[2].drawMoon();
   planets[2].moonOrbit();
+  planets[2].displayMoonOrbitCount();
   }
   reset();
   
@@ -64,8 +66,8 @@ void drawSun(){
 }
 
 void reset(){
-if (viewNum == 1) {viewNum = 0;
-}else if (planets[2].x == mouseX || planets[2].y == mouseY){
+if (viewNum == 0 && mousePressed){
    viewNum = 1;
-}
+}else if (viewNum == 1 && mousePressed)
+   viewNum = 0;
 }
