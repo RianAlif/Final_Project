@@ -1,5 +1,6 @@
 public abstract class Planet {
 int x, y;
+int orbitCount;
 float angle;
 float orbitRadiusA;
 float orbitRadiusB;
@@ -27,6 +28,11 @@ float speed;
     stroke(#666666);
     ellipse(centerX, centerY, orbitRadiusA * 2, orbitRadiusB * 2);
     
+     // Check if the planet has completed a full orbit
+     if (angle >= 2 * PI) {
+            orbitCount++;
+            angle = 0; // Reset the angle for the next orbit
+        }
     // Draw the Earth
     drawPlanet();
   
@@ -45,7 +51,10 @@ float speed;
     noFill();
     stroke(#666666);
     ellipse(centerX, centerY, orbitRadiusA * 2, orbitRadiusB * 2);
-    
+    if (angle >= 2 * PI) {
+            orbitCount++;
+        angle = 0; // Reset the angle for the next orbit
+    }
     // Draw the Earth
     drawMoon();
   
@@ -55,5 +64,7 @@ float speed;
   public abstract void drawPlanet();
   public abstract void centerPlanet();
   public abstract void drawMoon();
+  public abstract void displayOrbitCount();
+  public abstract void displayMoonOrbitCount();
   
 }
