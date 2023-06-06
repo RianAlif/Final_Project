@@ -19,4 +19,14 @@ public class Venus extends Planet {
   
    @Override
   public void drawMoon(){}
+  
+   @Override
+  public void displayOrbitCount(){
+    fill(#FFFFFF);
+    textSize(30);
+    text("Venus Orbit Count: " + (orbitCount - 1), 150, 140);
+  }
+  
+  @Override
+  public void displayMoonOrbitCount(){}
 }
