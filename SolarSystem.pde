@@ -3,18 +3,17 @@ int viewNum = 0;
 int x, y;
 
 Planet[] planets = new Planet[]{
-  new Mercury(7, 8, 220, 140, 0.0415),
-  new Venus(3.395, 18, 280, 180, 0.0162),
+  new Mercury(23.5, 8, 220, 140, 0.0415),
+  new Venus(23.5, 18, 280, 180, 0.0162),
   new Earth(23.5, 20, 330, 230, 0.01),
-  new Mars(25, 14, 380, 280, 0.005),
-  new Jupiter(1.3, 60, 510, 440, 0.00085)
+ // new Mars(25, 14, 380, 280, 0.005),
+ // new Jupiter(1.3, 60, 510, 440, 0.00085)
 };
   
 void setup() {
   size(1920, 1080);
   backgroundImage = loadImage("background.jpg");
   backgroundImage.resize(width, height);
-  
   x = width / 2;
   y = height / 2;
 }
@@ -30,13 +29,16 @@ void draw() {
   }
   if (viewNum == 0){
   drawSun();
-  for (int i = 0; i < planets.length; i++)
+  for (int i = 0; i < planets.length; i++){
        planets[i].orbit();
+       planets[i].displayOrbitCount();
+  }
   }
   if (viewNum == 1){
   planets[2].centerPlanet();
   planets[2].drawMoon();
   planets[2].moonOrbit();
+  planets[2].displayMoonOrbitCount();
   }
   reset();
   
@@ -61,6 +63,8 @@ void drawSun(){
 }
 
 void reset(){
-if (planets[2].x == mouseX || planets[2].y == mouseY)
+if (viewNum == 0 && mousePressed){
    viewNum = 1;
+}else if (viewNum == 1 && mousePressed)
+   viewNum = 0;
 }
