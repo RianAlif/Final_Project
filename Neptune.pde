@@ -19,8 +19,8 @@ public class Neptune extends Planet {
   @Override
   public void displayOrbitCount(){
     fill(#FFFFFF);
-    textSize(30);
-    text("Mercury Orbit Count: " + (orbitCount - 1), 150, 260);
+    textSize(25);
+    text("Neptune Orbit Count: " + (orbitCount - 1), 100, 260);
   }
   
   @Override
