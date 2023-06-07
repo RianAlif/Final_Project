@@ -48,6 +48,16 @@ void draw() {
     planets[0].drawMoon();
     planets[0].displayMoonOrbitCount();
   }
+  if (viewNum == 3) {
+    planets[1].centerPlanet();
+    planets[1].displayMoonOrbitCount();
+  }
+  if (viewNum == 4) {
+    planets[3].centerPlanet();
+    planets[3].drawMoon();
+    planets[3].moonOrbit();
+    planets[3].displayMoonOrbitCount();
+  }
 }
 
 void drawSun() {
@@ -71,13 +81,20 @@ void drawSun() {
 void mouseClicked() {
   if (mouseX > 1490 && mouseX < 1490+160 && mouseY > 760 && mouseY < 760+50 && viewNum != 0) {
     viewNum = 0;
-  } else if (((mouseX > planets[2].x && mouseX < planets[2].x+20) || (mouseX < planets[2].x && mouseX > planets[2].x-20)) &&
-             ((mouseY > planets[2].y && mouseY < planets[2].y+20) || (mouseY < planets[2].y && mouseY > planets[2].y-20)) && viewNum == 0) {
+  } else if (((mouseX > planets[2].x && mouseX < planets[2].x+20) || (mouseX <= planets[2].x && mouseX >= planets[2].x-20)) &&
+             ((mouseY > planets[2].y && mouseY < planets[2].y+20) || (mouseY <= planets[2].y && mouseY >= planets[2].y-20)) && viewNum == 0) {
     viewNum = 1;
-  } else if (((mouseX > planets[0].x && mouseX < planets[2].x+20) || (mouseX < planets[0].x && mouseX > planets[2].x-20)) &&
-             ((mouseY > planets[0].y && mouseY < planets[2].y+20) || (mouseY < planets[0].y && mouseY > planets[2].y-20)) && viewNum == 0) {
+  } else if (((mouseX > planets[0].x && mouseX < planets[0].x+50) || (mouseX <= planets[0].x && mouseX >= planets[0].x-50)) &&
+             ((mouseY > planets[0].y && mouseY < planets[0].y+50) || (mouseY <= planets[0].y && mouseY >= planets[0].y-50)) && viewNum == 0) {
     viewNum = 2;
+  } else if (((mouseX > planets[1].x && mouseX < planets[1].x+20) || (mouseX <= planets[1].x && mouseX >= planets[1].x-20)) &&
+             ((mouseY > planets[1].y && mouseY < planets[1].y+20) || (mouseY <= planets[1].y && mouseY >= planets[1].y-20)) && viewNum == 0) {
+    viewNum = 3;
+  } else if (((mouseX > planets[3].x && mouseX < planets[3].x+20) || (mouseX <= planets[3].x && mouseX >= planets[3].x-20)) &&
+             ((mouseY > planets[3].y && mouseY < planets[3].y+20) || (mouseY <= planets[3].y && mouseY >= planets[3].y-20)) && viewNum == 0) {
+    viewNum = 4;
   }
+  
   for (int i = 0; i < planets.length; i++)
     planets[i].resetPosition();
 }

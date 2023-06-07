@@ -6,16 +6,25 @@ public class Venus extends Planet {
   
   @Override
   public void drawPlanet() {
-    fill(#EDBFBF); // Pink color for Venus
-    
-    // Draw Venus as a circle
+    fill(#EDBFBF); 
     circle(x, y, size);
     fill(#F18938); //Darker pink color for details
     ellipse(x, y, size, size-10);
   }
   
    @Override
-  public void centerPlanet(){}
+  public void centerPlanet(){
+   fill(#EDBFBF); 
+    circle(width/2, height/2, 200);
+    fill(#F18938); //Darker pink color for details
+    ellipse(width/2, height/2, 200, 90);
+    
+    fill(#FFFFFF);
+    rect(1490, 760, 195, 50);
+    fill(#42f300);
+    textSize(50);
+    text("RETURN", 1500, 800);
+  }
   
    @Override
   public void drawMoon(){}
