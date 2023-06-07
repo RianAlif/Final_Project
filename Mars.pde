@@ -19,8 +19,8 @@ public class Mars extends Planet {
   @Override
   public void displayOrbitCount(){
     fill(#FFFFFF);
-    textSize(30);
-    text("Mercury Orbit Count: " + (orbitCount - 1), 150, 220);
+    textSize(25);
+    text("Mars Orbit Count: " + (orbitCount - 1), 100, 220);
   }
   
   @Override
