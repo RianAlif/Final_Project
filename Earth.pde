@@ -30,10 +30,10 @@ public class Earth extends Planet {
 
 
     fill(#FFFFFF);
-    rect(1490, 760, 160, 50);
+    rect(1490, 760, 195, 50);
     fill(#42f300);
     textSize(50);
-    text("Return", 1500, 800);
+    text("RETURN", 1500, 800);
   }
 
   @Override
@@ -46,8 +46,8 @@ public class Earth extends Planet {
   @Override
     public void displayOrbitCount() {
     fill(#FFFFFF);
-    textSize(30);
-    text("Earth Orbit Count: " + (orbitCount - 1), 150, 60);
+    textSize(25);
+    text("Earth Orbit Count: " + (orbitCount - 1), 100, 60);
   }
 
   @Override
