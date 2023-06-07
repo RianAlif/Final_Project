@@ -9,8 +9,8 @@ Planet[] planets = new Planet[]{
   new Mars(23.5, 14, 340, 230, 0.005),
   new Jupiter(23.5, 60, 420, 310, 0.00085),
   new Saturn(23.5, 50, 520, 410, 0.00034),
-  new Uranus(23.5, 25, 600, 490, 0.000119),
-  new Neptune(23.5, 25, 650, 520, 0.000061)
+  new Uranus(23.5, 25, 620, 510, 0.000119),
+  new Neptune(23.5, 25, 690, 560, 0.000061)
 };
 
 void setup() {
@@ -43,6 +43,11 @@ void draw() {
     planets[2].moonOrbit();
     planets[2].displayMoonOrbitCount();
   }
+  if (viewNum == 2) {
+    planets[0].centerPlanet();
+    planets[0].drawMoon();
+    planets[0].displayMoonOrbitCount();
+  }
 }
 
 void drawSun() {
@@ -64,10 +69,15 @@ void drawSun() {
 }
 
 void mouseClicked() {
-  if (mouseX > 1490 && mouseX < 1490+160 && mouseY > 760 && mouseY < 760+50 && viewNum == 1) {
+  if (mouseX > 1490 && mouseX < 1490+160 && mouseY > 760 && mouseY < 760+50 && viewNum != 0) {
     viewNum = 0;
-  } else if (viewNum == 0)
+  } else if (((mouseX > planets[2].x && mouseX < planets[2].x+20) || (mouseX < planets[2].x && mouseX > planets[2].x-20)) &&
+             ((mouseY > planets[2].y && mouseY < planets[2].y+20) || (mouseY < planets[2].y && mouseY > planets[2].y-20)) && viewNum == 0) {
     viewNum = 1;
+  } else if (((mouseX > planets[0].x && mouseX < planets[2].x+20) || (mouseX < planets[0].x && mouseX > planets[2].x-20)) &&
+             ((mouseY > planets[0].y && mouseY < planets[2].y+20) || (mouseY < planets[0].y && mouseY > planets[2].y-20)) && viewNum == 0) {
+    viewNum = 2;
+  }
   for (int i = 0; i < planets.length; i++)
-    planets[i].orbitCount = 1;
+    planets[i].resetPosition();
 }
