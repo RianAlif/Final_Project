@@ -60,6 +60,11 @@ float speed;
   
     angle += speed; // Controls the speed of the orbit
   }
+  
+  public void resetPosition() {
+    angle = 23.5; // Reset the angle
+    orbitCount = 0; // Reset the orbit count
+  }
 
   public abstract void drawPlanet();
   public abstract void centerPlanet();
