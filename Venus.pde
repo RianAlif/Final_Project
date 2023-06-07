@@ -23,8 +23,8 @@ public class Venus extends Planet {
    @Override
   public void displayOrbitCount(){
     fill(#FFFFFF);
-    textSize(30);
-    text("Venus Orbit Count: " + (orbitCount - 1), 150, 140);
+    textSize(25);
+    text("Venus Orbit Count: " + (orbitCount - 1), 100, 140);
   }
   
   @Override
