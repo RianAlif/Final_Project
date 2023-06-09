@@ -1,7 +1,6 @@
 PImage backgroundImage;
 int viewNum = 0;
 int x, y;
-float angle = 0;
 
 Planet[] planets = new Planet[]{
   new Mercury(0, 8, 190, 110, 0.0415),
