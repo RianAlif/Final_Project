@@ -40,20 +40,43 @@ public class Earth extends Planet {
     public void drawMoon() {
     noStroke();
     fill(#c1c0bf);
-    circle(x, y, 40);
+    circle(x, y, 30);
+  }
+
+  @Override
+    public void moonOrbit() {
+    float centerX = width / 2;
+    float centerY = height / 2;
+
+    // Calculate the new position of the Earth
+    x = (int) (centerX + (orbitRadiusA+60) * cos(-angle));
+    y = (int) (centerY + (orbitRadiusB+60) * sin(-angle));
+
+    // Draw the ellipse representing Earth's orbit
+    noFill();
+    stroke(#666666);
+    ellipse(centerX, centerY, (orbitRadiusA+60) * 2, (orbitRadiusB+60) * 2);
+    if (angle >= 2 * PI) {
+      orbitCount++;
+      angle = 0; // Reset the angle for the next orbit
+    }
+    // Draw the Moon
+    drawMoon();
+
+    angle += speed; // Controls the speed of the orbit
   }
 
   @Override
     public void displayOrbitCount() {
     fill(#FFFFFF);
     textSize(25);
-    text("Earth Orbit Count: " + (orbitCount - 1), 100, 60);
+    text("Earth Orbit Count: " + (orbitCount), 100, 140);
   }
 
   @Override
     public void displayMoonOrbitCount() {
     fill(#FFFFFF);
     textSize(30);
-    text("Moon Orbit Count: " + (orbitCount - 1), 150, 60);
+    text("Moon Orbit Count: " + orbitCount, 150, 60);
   }
 }
