@@ -46,13 +46,20 @@ public class Mercury extends Planet {
   }
 
   @Override
+    public void moonOrbit() {
+  }
+
+  @Override
     public void displayOrbitCount() {
     fill(#FFFFFF);
     textSize(25);
-    text("Mercury Orbit Count: " + (orbitCount - 1), 100, 100);
+    text("Mercury Orbit Count: " + (orbitCount), 100, 60);
   }
 
   @Override
     public void displayMoonOrbitCount() {
+    fill(#FFFFFF);
+    textSize(80);
+    text("NO MOON", width/2 - 170, height/2 - 350);
   }
 }
