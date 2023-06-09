@@ -1,17 +1,21 @@
 PImage backgroundImage;
 int viewNum = 0;
 int x, y;
+float angle = 0;
 
 Planet[] planets = new Planet[]{
-  new Mercury(23.5, 8, 190, 110, 0.0415),
-  new Venus(23.5, 18, 240, 150, 0.0162),
-  new Earth(23.5, 20, 290, 190, 0.01),
-  new Mars(23.5, 14, 340, 230, 0.005),
-  new Jupiter(23.5, 60, 420, 310, 0.00085),
-  new Saturn(23.5, 50, 520, 410, 0.00034),
-  new Uranus(23.5, 25, 620, 510, 0.000119),
-  new Neptune(23.5, 25, 690, 560, 0.000061)
+  new Mercury(0, 8, 190, 110, 0.0415),
+  new Venus(0, 18, 240, 150, 0.0162),
+  new Earth(0, 20, 290, 190, 0.01),
+  new Mars(0, 14, 340, 230, 0.005),
+  new Jupiter(0, 60, 480, 340, 0.00085),
+  new Saturn(0, 50, 580, 440, 0.00034),
+  new Uranus(0, 25, 680, 540, 0.000119),
+  new Neptune(0, 25, 750, 590, 0.000061),
+  new Pluto(0, 5, 820, 640, 0.000005)
 };
+
+AstroidBelt belt = new AstroidBelt();
 
 void setup() {
   size(1920, 1080);
@@ -32,6 +36,8 @@ void draw() {
   }
   if (viewNum == 0) {
     drawSun();
+    belt.drawAstroidBelt();
+    belt.astroidOrbit();
     for (int i = 0; i < planets.length; i++) {
       planets[i].orbit();
       planets[i].displayOrbitCount();
@@ -57,6 +63,36 @@ void draw() {
     planets[3].drawMoon();
     planets[3].moonOrbit();
     planets[3].displayMoonOrbitCount();
+  }
+  if (viewNum == 5) {
+    planets[4].centerPlanet();
+    planets[4].drawMoon();
+    planets[4].moonOrbit();
+    planets[4].displayMoonOrbitCount();
+  }
+  if (viewNum == 6) {
+    planets[5].centerPlanet();
+    planets[5].drawMoon();
+    planets[5].moonOrbit();
+    planets[5].displayMoonOrbitCount();
+  }
+  if (viewNum == 7) {
+    planets[6].centerPlanet();
+    planets[6].drawMoon();
+    planets[6].moonOrbit();
+    planets[6].displayMoonOrbitCount();
+  }
+  if (viewNum == 8) {
+    planets[7].centerPlanet();
+    planets[7].drawMoon();
+    planets[7].moonOrbit();
+    planets[7].displayMoonOrbitCount();
+  }
+  if (viewNum == 9) {
+    planets[8].centerPlanet();
+    planets[8].drawMoon();
+    planets[8].moonOrbit();
+    planets[8].displayMoonOrbitCount();
   }
 }
 
@@ -93,6 +129,21 @@ void mouseClicked() {
   } else if (((mouseX > planets[3].x && mouseX < planets[3].x+20) || (mouseX <= planets[3].x && mouseX >= planets[3].x-20)) &&
              ((mouseY > planets[3].y && mouseY < planets[3].y+20) || (mouseY <= planets[3].y && mouseY >= planets[3].y-20)) && viewNum == 0) {
     viewNum = 4;
+  } else if (((mouseX > planets[4].x && mouseX < planets[4].x+30) || (mouseX <= planets[4].x && mouseX >= planets[4].x-30)) &&
+             ((mouseY > planets[4].y && mouseY < planets[4].y+30) || (mouseY <= planets[4].y && mouseY >= planets[4].y-30)) && viewNum == 0) {
+    viewNum = 5;
+  } else if (((mouseX > planets[5].x && mouseX < planets[5].x+30) || (mouseX <= planets[5].x && mouseX >= planets[5].x-30)) &&
+             ((mouseY > planets[5].y && mouseY < planets[5].y+30) || (mouseY <= planets[5].y && mouseY >= planets[5].y-30)) && viewNum == 0) {
+    viewNum = 6;
+  } else if (((mouseX > planets[6].x && mouseX < planets[6].x+30) || (mouseX <= planets[6].x && mouseX >= planets[6].x-30)) &&
+             ((mouseY > planets[6].y && mouseY < planets[6].y+30) || (mouseY <= planets[6].y && mouseY >= planets[6].y-30)) && viewNum == 0) {
+    viewNum = 7;
+  } else if (((mouseX > planets[7].x && mouseX < planets[7].x+30) || (mouseX <= planets[7].x && mouseX >= planets[7].x-30)) &&
+             ((mouseY > planets[7].y && mouseY < planets[7].y+30) || (mouseY <= planets[7].y && mouseY >= planets[7].y-30)) && viewNum == 0) {
+    viewNum = 8;
+  } else if (((mouseX > planets[8].x && mouseX < planets[8].x+10) || (mouseX <= planets[8].x && mouseX >= planets[8].x-10)) &&
+             ((mouseY > planets[8].y && mouseY < planets[8].y+10) || (mouseY <= planets[8].y && mouseY >= planets[8].y-10)) && viewNum == 0) {
+    viewNum = 9;
   }
   
   for (int i = 0; i < planets.length; i++)
